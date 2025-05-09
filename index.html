@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Data Hub</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    />
+  </head>
+  <body class="dark-mode">
+    <div class="container">
+      <header>
+        <img src="csen-bw.png" />
+        <div class="theme-toggle">
+          <span class="theme-label">Dark</span>
+          <label class="switch">
+            <input type="checkbox" id="theme-switch" />
+            <span class="slider"></span>
+          </label>
+          <span class="theme-label">Light</span>
+        </div>
+      </header>
+
+      <nav>
+        <div class="tabs">
+          <button class="tab-btn active" data-tab="calendar">Calendar</button>
+          <button class="tab-btn" data-tab="resources">Resources</button>
+          <button class="tab-btn" data-tab="discuss">Discuss</button>
+        </div>
+      </nav>
+
+      <main>
+        <div class="tab-content active" id="calendar">
+          <h2>NE Scotland Data & Tech Events Community Calendar</h2>
+          <div class="calendar-layout">
+            <div class="calendar-container">
+              <div
+                data-tockify-component="mini"
+                data-tockify-calendar="aberdeentechdata"
+              ></div>
+            </div>
+            <div class="calendar-description">
+              <h3>Tech Community Calendar</h3>
+              <p>
+                Welcome to our comprehensive tech events calendar, your gateway
+                to the vibrant Aberdeen tech community. This calendar showcases
+                upcoming workshops, meetups, hackathons, and conferences
+                designed to foster learning and collaboration.
+              </p>
+
+              <p>
+                Our events cater to all skill levels, from beginners taking
+                their first steps in technology to seasoned professionals
+                looking to expand their expertise. Each event is carefully
+                curated to provide maximum value and practical insights.
+              </p>
+
+              <h4>What to Expect</h4>
+              <p>
+                Events typically include hands-on workshops where you can
+                develop new skills, networking sessions to connect with
+                like-minded professionals, and talks from industry experts
+                sharing cutting-edge developments.
+              </p>
+
+              <p>
+                The Aberdeen tech community prides itself on being inclusive and
+                supportive. Whether you're interested in data science, web
+                development, cybersecurity, or emerging technologies, you'll
+                find events that match your interests.
+              </p>
+
+              <h4>Getting Involved</h4>
+              <p>
+                Participation is easy! Simply click on any event in the calendar
+                to see details including location, time, and registration
+                information. Most events offer both in-person and virtual
+                attendance options to accommodate different preferences and
+                situations.
+              </p>
+
+              <p>
+                We encourage community members to propose and organize events.
+                If you have expertise to share or a topic you'd like to see
+                covered, please reach out through our discussion forum.
+              </p>
+
+              <h4>Stay Updated</h4>
+              <p>
+                The calendar is updated regularly with new events. You can
+                subscribe to receive notifications about upcoming events that
+                match your interests or add this calendar to your personal
+                calendar application.
+              </p>
+
+              <p>
+                Join us in building a thriving tech ecosystem in Aberdeen
+                through knowledge sharing, collaboration, and community
+                engagement.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="resources">
+          <h2>Community Resources</h2>
+          <div class="discourse-container">
+            <!-- Placeholder for Discourse posts -->
+            <div class="discourse-post">
+              <h3>Getting Started with Data Science</h3>
+              <p class="post-meta">Posted by Admin • 2 days ago</p>
+              <p>
+                This guide covers the essential tools and concepts for beginners
+                in data science...
+              </p>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="discourse-post">
+              <h3>Machine Learning Workshop Recap</h3>
+              <p class="post-meta">Posted by DataExpert • 1 week ago</p>
+              <p>
+                Summary of our recent workshop on practical applications of
+                machine learning...
+              </p>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+            <div class="discourse-post">
+              <h3>Community Project: Data Visualization</h3>
+              <p class="post-meta">Posted by Visualizer • 2 weeks ago</p>
+              <p>
+                Join our collaborative project to create interactive data
+                visualizations...
+              </p>
+              <a href="#" class="read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="discuss">
+          <h2>Join the Discussion</h2>
+          <p>You'll be redirected to our community forum shortly...</p>
+          <div class="redirect-message">
+            <p>
+              If you're not redirected automatically, click the button below:
+            </p>
+            <a href="https://csen.csteach.uk" class="cta-button" target="_blank"
+              >Go to Forum</a
+            >
+          </div>
+        </div>
+      </main>
+
+      <footer>
+        <p>© 2025 csteach.uk</p>
+      </footer>
+    </div>
+
+    <script
+      data-cfasync="false"
+      data-tockify-script="embed"
+      src="https://public.tockify.com/browser/embed.js"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
