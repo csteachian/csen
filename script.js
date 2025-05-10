@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Special handling for Discuss tab
       if (tabId === "discuss") {
         setTimeout(() => {
-          window.open("https://csen.csteach.uk", "_self");
+          window.open("https://discuss.csteach.uk", "_self");
         }, 1000);
       } else if (tabId === "resources") {
         setTimeout(() => {
