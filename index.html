@@ -10,18 +10,10 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
     />
   </head>
-  <body class="dark-mode">
+  <body class="light-mode">
     <div class="container">
       <header>
         <img src="csen-bw.png" />
-        <div class="theme-toggle">
-          <span class="theme-label">Dark</span>
-          <label class="switch">
-            <input type="checkbox" id="theme-switch" />
-            <span class="slider"></span>
-          </label>
-          <span class="theme-label">Light</span>
-        </div>
       </header>
 
       <nav>
@@ -34,73 +26,34 @@
 
       <main>
         <div class="tab-content active" id="calendar">
-          <h2>NE Scotland Data & Tech Events Community Calendar</h2>
           <div class="calendar-layout">
             <div class="calendar-container">
+              <h3>NE Scotland Data & Tech Events Community Calendar</h3>
               <div
                 data-tockify-component="mini"
                 data-tockify-calendar="aberdeentechdata"
               ></div>
             </div>
             <div class="calendar-description">
-              <h3>Tech Community Calendar</h3>
-              <p>
-                Welcome to our comprehensive tech events calendar, your gateway
-                to the vibrant Aberdeen tech community. This calendar showcases
-                upcoming workshops, meetups, hackathons, and conferences
-                designed to foster learning and collaboration.
-              </p>
+              <h3>Latest Community Newsletters</h3>
+              <div id="substack-feed-embed"></div>
 
-              <p>
-                Our events cater to all skill levels, from beginners taking
-                their first steps in technology to seasoned professionals
-                looking to expand their expertise. Each event is carefully
-                curated to provide maximum value and practical insights.
-              </p>
-
-              <h4>What to Expect</h4>
-              <p>
-                Events typically include hands-on workshops where you can
-                develop new skills, networking sessions to connect with
-                like-minded professionals, and talks from industry experts
-                sharing cutting-edge developments.
-              </p>
-
-              <p>
-                The Aberdeen tech community prides itself on being inclusive and
-                supportive. Whether you're interested in data science, web
-                development, cybersecurity, or emerging technologies, you'll
-                find events that match your interests.
-              </p>
-
-              <h4>Getting Involved</h4>
-              <p>
-                Participation is easy! Simply click on any event in the calendar
-                to see details including location, time, and registration
-                information. Most events offer both in-person and virtual
-                attendance options to accommodate different preferences and
-                situations.
-              </p>
-
-              <p>
-                We encourage community members to propose and organize events.
-                If you have expertise to share or a topic you'd like to see
-                covered, please reach out through our discussion forum.
-              </p>
-
-              <h4>Stay Updated</h4>
-              <p>
-                The calendar is updated regularly with new events. You can
-                subscribe to receive notifications about upcoming events that
-                match your interests or add this calendar to your personal
-                calendar application.
-              </p>
-
-              <p>
-                Join us in building a thriving tech ecosystem in Aberdeen
-                through knowledge sharing, collaboration, and community
-                engagement.
-              </p>
+              <script>
+                window.SubstackFeedWidget = {
+                  substackUrl: "csenabz.substack.com",
+                  posts: 5,
+                  hidden: ["reactions", "author"],
+                  colors: {
+                    primary: "#333333",
+                    secondary: "#666666",
+                    background: "#E8E8E8",
+                  },
+                };
+              </script>
+              <script
+                src="https://substackapi.com/embeds/feed.js"
+                async
+              ></script>
             </div>
           </div>
         </div>
@@ -109,23 +62,6 @@
           <h2>Community Resources</h2>
           <div class="discourse-container">
             <!-- Placeholder for Discourse posts -->
-            <div class="substack-post-embed">
-              <p lang="en">
-                Pseudocode to Python revision resource by Ian Simpson
-              </p>
-              <p></p>
-              <a
-                data-post-link
-                href="https://csenabz.substack.com/p/pseudocode-to-python-revision-resource"
-                >Read on Substack</a
-              >
-            </div>
-            <script
-              async
-              src="https://substack.com/embedjs/embed.js"
-              charset="utf-8"
-            ></script>
-
             <div class="discourse-post">
               <h3>Getting Started with Data Science</h3>
               <p class="post-meta">Posted by Admin • 2 days ago</p>
