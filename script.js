@@ -17,8 +17,12 @@ document.addEventListener("DOMContentLoaded", function () {
       // Special handling for Discuss tab
       if (tabId === "discuss") {
         setTimeout(() => {
-          window.open("https://csen.csteach.uk", "_blank");
-        }, 2000);
+          window.open("https://csen.csteach.uk", "_self");
+        }, 1000);
+      } else if (tabId === "resources") {
+        setTimeout(() => {
+          window.open("https://www.csteach.uk", "_self");
+        }, 1000);
       }
     });
   });
