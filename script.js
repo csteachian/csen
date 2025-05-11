@@ -18,11 +18,15 @@ document.addEventListener("DOMContentLoaded", function () {
       if (tabId === "discuss") {
         setTimeout(() => {
           window.open("https://discuss.csteach.uk", "_self");
-        }, 1000);
+        }, 10);
       } else if (tabId === "resources") {
         setTimeout(() => {
           window.open("https://www.csteach.uk", "_self");
-        }, 1000);
+        }, 10);
+      } else if (tabId === "subscribe") {
+        setTimeout(() => {
+          window.open("https://csenabz.substack.com/subscribe", "_self");
+        }, 10);
       }
     });
   });

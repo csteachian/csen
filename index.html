@@ -35,15 +35,16 @@
               ></div>
             </div>
             <div class="calendar-description">
-              <h3>Latest Community Newsletters</h3>
-              <iframe
-                src="https://csenabz.substack.com/embed"
-                width="100%"
-                height="320"
-                style="border: 1px solid #eee; background: white"
-                frameborder="0"
-                scrolling="no"
-              ></iframe>
+              <h3>
+                Latest Community Newsletters
+                <button
+                  style="float: right"
+                  class="tab-btn"
+                  data-tab="subscribe"
+                >
+                  Subscribe
+                </button>
+              </h3>
               <div id="substack-feed-embed"></div>
 
               <script>
@@ -73,7 +74,7 @@
             <p>
               If you're not redirected automatically, click the button below:
             </p>
-            <a href="https://www.csteach.uk" class="cta-button" target="_blank"
+            <a href="https://www.csteach.uk" class="cta-button" target="_self"
               >Go to Resources</a
             >
           </div>
@@ -89,8 +90,22 @@
             <a
               href="https://discuss.csteach.uk"
               class="cta-button"
-              target="_blank"
+              target="_self"
               >Go to Forum</a
+            >
+          </div>
+        </div>
+
+        <div class="tab-content" id="subscribe">
+          <div class="redirect-message">
+            <p>
+              If you're not redirected automatically, click the button below:
+            </p>
+            <a
+              href="https://csenabz.substack.com/subscribe"
+              class="cta-button"
+              target="_self"
+              >Subscribe on Substack</a
             >
           </div>
         </div>
