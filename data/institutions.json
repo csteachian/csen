@@ -56,7 +56,7 @@
     "PupilRoll": 1281,
     "Latitude": 57.5086368,
     "Longitude": -1.7885682,
-    "contacts": ["Brown"],
+    "contacts": ["Brown", "Smith"],
     "courses": "BSc Computing Science, MSc Data Science."
   }
 ]
