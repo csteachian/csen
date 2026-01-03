@@ -11,12 +11,17 @@
     />
 
     <!-- Leaflet CSS -->
+
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
     />
+    <link
+      rel="stylesheet"
+      href="https://rawgit.com/pointhi/leaflet-color-markers/master/leaflet.markercluster.2.0.0.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://rawgit.com/pointhi/leaflet-color-markers/master/leaflet.markercluster.2.0.0.min.js"></script>
 
     <style>
       #map {
@@ -143,6 +148,25 @@
             return response.json();
           })
           .then((institutions) => {
+            const typeToColor = {
+              Primary: "blue",
+              Secondary: "red",
+              Special: "orange",
+              // Add more: 'green', 'violet', etc.
+            };
+
+            const getColorIcon = (type) =>
+              L.icon({
+                iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${
+                  typeToColor[type] || "blue"
+                }.png`,
+                shadowUrl:
+                  "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
+              });
+
             institutions.forEach((inst) => {
               if (
                 typeof inst.Latitude !== "number" ||
@@ -168,7 +192,9 @@
                 ${inst.courses || ""}
               `;
 
-              L.marker([inst.Latitude, inst.Longitude])
+              L.marker([inst.Latitude, inst.Longitude], {
+                icon: getColorIcon(inst.SchoolType),
+              })
                 .addTo(map)
                 .bindPopup(popupHtml);
             });
