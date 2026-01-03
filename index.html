@@ -162,7 +162,9 @@
                 ${inst.courses || ""}
               `;
 
-              L.marker([inst.lat, inst.lng]).addTo(map).bindPopup(popupHtml);
+              L.marker([inst.Latitude, inst.Longitude])
+                .addTo(map)
+                .bindPopup(popupHtml);
             });
           })
           .catch((err) => {
