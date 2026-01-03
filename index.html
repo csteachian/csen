@@ -147,115 +147,120 @@
     ></script>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const mapEl = document.getElementById("map");
-        if (!mapEl) return;
+            document.addEventListener("DOMContentLoaded", function () {
+              const mapEl = document.getElementById("map");
+              if (!mapEl) return;
 
-        //const map = L.map("map").setView([57.15, -2.09], 7); // NE Scotland-ish
-        const map = L.map("map").setView([57.23, -2.61], 8); // Aberdeenshire center, zoomed in
+              //const map = L.map("map").setView([57.15, -2.09], 7); // NE Scotland-ish
+              const map = L.map("map").setView([57.23, -2.61], 8); // Aberdeenshire center, zoomed in
 
-        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          maxZoom: 19,
-          attribution: "© OpenStreetMap contributors",
-        }).addTo(map);
+              L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                maxZoom: 19,
+                attribution: "© OpenStreetMap contributors",
+              }).addTo(map);
 
-        // Layer groups by type
-        const primaryGroup = L.layerGroup();
-        const secondaryGroup = L.layerGroup();
-        const specialGroup = L.layerGroup();
-        const independentGroup = L.layerGroup();
+              // Layer groups by type
+              const primaryGroup = L.layerGroup();
+              const secondaryGroup = L.layerGroup();
+              const specialGroup = L.layerGroup();
+              const independentGroup = L.layerGroup();
 
-        fetch("data/institutions.json")
-          .then((response) => response.json())
-          .then((institutions) => {
-            const typeToRgb = {
-              Primary: "#4A90E2", // Blue
-              Secondary: "#E94B3C", // Red
-              Special: "#F7CA18", // Gold
-              Independent: "#A020F0", // Purple
-            };
+              fetch("data/institutions.json")
+                .then((response) => response.json())
+                .then((institutions) => {
+                  const typeToRgb = {
+                    Primary: "#4A90E2", // Blue
+                    PrimaryNC: "#cee2f7" // light blue
+                    Secondary: "#E94B3C", // Red
+                    SecondaryNC: "#f9d0cd" // light red
+                    Special: "#F7CA18", // Gold
+                    SpecialNC: "#fdf3c9" // light gold
+                    Independent: "#A020F0", // Purple
+                    IndependentNC: "#e9cbfb" // light purple
 
-            const getColorIcon = (type) => {
-              const color = typeToRgb[type] || "#808080";
-              // Classic pin SVG path (from Leaflet defaults, optimized)
-              const svgPin = `<svg xmlns='http://www.w3.org/2000/svg' width='25' height='41' viewBox='0 0 25 41'>
-          <path fill='${color}' stroke='rgba(255,255,255,0.9)' stroke-width='1.5' stroke-linejoin='round' d='M12.5 0C5.71 0 0 5.71 0 12.5c0 8.1 12.5 30.5 12.5 30.5S25 20.6 25 12.5C25 5.71 19.29 0 12.5 0z' opacity='0.95'/>
-          <circle fill='white' cx='12.5' cy='12.5' r='6' opacity='0.9'/>
-        </svg>`;
+                  };
 
-              return L.icon({
-                iconUrl: `data:image/svg+xml;base64,${btoa(svgPin)}`, // Encode SVG as data URI
-                shadowUrl:
-                  "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
-                iconSize: [25, 41],
-                iconAnchor: [12, 41],
-                popupAnchor: [1, -34],
-              });
-            };
+                  const getColorIcon = (type) => {
+                    const color = typeToRgb[type] || "#808080";
+                    // Classic pin SVG path (from Leaflet defaults, optimized)
+                    const svgPin = `<svg xmlns='http://www.w3.org/2000/svg' width='25' height='41' viewBox='0 0 25 41'>
+                <path fill='${color}' stroke='rgba(255,255,255,0.9)' stroke-width='1.5' stroke-linejoin='round' d='M12.5 0C5.71 0 0 5.71 0 12.5c0 8.1 12.5 30.5 12.5 30.5S25 20.6 25 12.5C25 5.71 19.29 0 12.5 0z' opacity='0.95'/>
+                <circle fill='white' cx='12.5' cy='12.5' r='6' opacity='0.9'/>
+              </svg>`;
 
-            institutions.forEach((inst) => {
-              if (
-                typeof inst.Latitude !== "number" ||
-                typeof inst.Longitude !== "number"
-              )
-                return;
+                    return L.icon({
+                      iconUrl: `data:image/svg+xml;base64,${btoa(svgPin)}`, // Encode SVG as data URI
+                      shadowUrl:
+                        "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+                      iconSize: [25, 41],
+                      iconAnchor: [12, 41],
+                      popupAnchor: [1, -34],
+                    });
+                  };
 
-              const contactsHtml =
-                Array.isArray(inst.contacts) && inst.contacts.length
-                  ? inst.contacts.map((c) => `💻 ${c}`).join("<br>")
-                  : "💻 <i>no CS/ICT teacher</i>";
+                  institutions.forEach((inst) => {
+                    if (
+                      typeof inst.Latitude !== "number" ||
+                      typeof inst.Longitude !== "number"
+                    )
+                      return;
 
-              const popupHtml = `
-              ${
-                inst.Website
-                  ? `<a href="${inst.Website}" target="_blank"><strong>${inst.SchoolName}</strong></a>`
-                  : `<strong>${inst.SchoolName}</strong>`
-              }
-                     &nbsp;&nbsp;[${inst.SeedCode}]
-              <br>${inst.PostCode}, ${inst.LAName} (${inst.SchoolType})
-              <br>${contactsHtml}
-              <br>${inst.courses || ""}
-            `;
+                    const contactsHtml =
+                      Array.isArray(inst.contacts) && inst.contacts.length
+                        ? inst.contacts.map((c) => `💻 ${c}`).join("<br>")
+                        : "💻 <i>no CS/ICT teacher</i>";
 
-              const marker = L.marker([inst.Latitude, inst.Longitude], {
-                icon: getColorIcon(inst.SchoolType),
-              }).bindPopup(popupHtml);
+                    const popupHtml = `
+                    ${
+                      inst.Website
+                        ? `<a href="${inst.Website}" target="_blank"><strong>${inst.SchoolName}</strong></a>`
+                        : `<strong>${inst.SchoolName}</strong>`
+                    }
+                           &nbsp;&nbsp;[${inst.SeedCode}]
+                    <br>${inst.PostCode}, ${inst.LAName} (${inst.SchoolType})
+                    <br>${contactsHtml}
+                    <br>${inst.courses || ""}
+                  `;
+      const thisSchoolType = Array.isArray(inst.contacts) && inst.contacts.length ? inst.SchoolType : inst.SchoolType.join("NC");
+                    const marker = L.marker([inst.Latitude, inst.Longitude], {
+                      icon: getColorIcon(thisSchoolType),
+                    }).bindPopup(popupHtml);
 
-              // Add to correct group
-              switch (inst.SchoolType) {
-                case "Primary":
-                  primaryGroup.addLayer(marker);
-                  break;
-                case "Secondary":
-                  secondaryGroup.addLayer(marker);
-                  break;
-                case "Special":
-                  specialGroup.addLayer(marker);
-                  break;
-                case "Independent":
-                  independentGroup.addLayer(marker);
-                  break;
-              }
+                    // Add to correct group
+                    switch (inst.SchoolType) {
+                      case "Primary":
+                        primaryGroup.addLayer(marker);
+                        break;
+                      case "Secondary":
+                        secondaryGroup.addLayer(marker);
+                        break;
+                      case "Special":
+                        specialGroup.addLayer(marker);
+                        break;
+                      case "Independent":
+                        independentGroup.addLayer(marker);
+                        break;
+                    }
+                  });
+
+                  // Add groups to map (all visible initially)
+                  primaryGroup.addTo(map);
+                  secondaryGroup.addTo(map);
+                  specialGroup.addTo(map);
+                  independentGroup.addTo(map);
+
+                  // Add filter control (checkboxes)
+                  L.control
+                    .layers(null, {
+                      "Primary Schools": primaryGroup,
+                      "Secondary Schools": secondaryGroup,
+                      "Special Schools": specialGroup,
+                      "Independent Schools": independentGroup,
+                    })
+                    .addTo(map);
+                })
+                .catch((err) => console.error("Error loading JSON", err));
             });
-
-            // Add groups to map (all visible initially)
-            primaryGroup.addTo(map);
-            secondaryGroup.addTo(map);
-            specialGroup.addTo(map);
-            independentGroup.addTo(map);
-
-            // Add filter control (checkboxes)
-            L.control
-              .layers(null, {
-                "Primary Schools": primaryGroup,
-                "Secondary Schools": secondaryGroup,
-                "Special Schools": specialGroup,
-                "Independent Schools": independentGroup,
-              })
-              .addTo(map);
-          })
-          .catch((err) => console.error("Error loading JSON", err));
-      });
     </script>
 
     <script src="script.js"></script>
