@@ -144,8 +144,8 @@
           .then((institutions) => {
             institutions.forEach((inst) => {
               if (
-                typeof inst.lat !== "number" ||
-                typeof inst.lng !== "number"
+                typeof inst.Latitude !== "number" ||
+                typeof inst.Longitude !== "number"
               ) {
                 return;
               }
@@ -153,8 +153,8 @@
               const popupHtml = `
               ${
                 inst.url
-                  ? `<a href="${inst.url}" target="_blank"><strong>${inst.SchoolName}</strong></a>`
-                  : "<strong>${inst.SchoolName}</strong>"
+                  ? `<a href="${inst.Website}" target="_blank"><strong>${inst.SchoolName}</strong></a>`
+                  : `<strong>${inst.SchoolName}</strong>`
               }
                &nbsp;&nbsp;[${inst.SeedCode}]<br>
                 ${inst.PostCode + ", "}${inst.LAName}<br>
