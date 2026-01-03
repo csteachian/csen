@@ -17,15 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
       // Special handling for Discuss tab
       if (tabId === "discuss") {
         setTimeout(() => {
-          window.open("https://discuss.csteach.uk", "_self");
+          window.open(
+            "https://teams.live.com/l/community/FEAa76RQyErK4_U6QI",
+            "_self"
+          );
         }, 10);
       } else if (tabId === "resources") {
         setTimeout(() => {
           window.open("https://www.csteach.uk", "_self");
-        }, 10);
-      } else if (tabId === "subscribe") {
-        setTimeout(() => {
-          window.open("https://csenabz.substack.com/subscribe", "_self");
         }, 10);
       }
     });
