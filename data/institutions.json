@@ -9,7 +9,16 @@
     "Website": "https://blogs.glowscotland.org.uk/na/abbeyprimaryschool/",
     "FTETeacher": 15.4,
     "PupilRoll": 232,
-    "Latitude": 55.6563736,
-    "Longitude": -4.706148
+    "lat": 55.6563736,
+    "lng": -4.706148
+  },
+  {
+    "name": "Example University",
+    "city": "Dundee",
+    "country": "Scotland",
+    "lat": 56.462,
+    "lng": -2.9707,
+    "contacts": ["Brown"],
+    "courses": "BSc Computing Science, MSc Data Science."
   }
 ]
