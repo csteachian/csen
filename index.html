@@ -149,6 +149,7 @@
         const primaryGroup = L.layerGroup();
         const secondaryGroup = L.layerGroup();
         const specialGroup = L.layerGroup();
+        const independentGroup = L.layerGroup();
 
         fetch("data/institutions.json")
           .then((response) => response.json())
@@ -157,6 +158,7 @@
               Primary: "#4A90E2", // Blue
               Secondary: "#E94B3C", // Red
               Special: "#F7CA18", // Gold
+              Independent: "#A020F0", // Purple
             };
 
             const getColorIcon = (type) => {
@@ -216,6 +218,9 @@
                 case "Special":
                   specialGroup.addLayer(marker);
                   break;
+                case "Independent":
+                  independentGroup.addLayer(marker);
+                  break;
               }
             });
 
@@ -223,6 +228,7 @@
             primaryGroup.addTo(map);
             secondaryGroup.addTo(map);
             specialGroup.addTo(map);
+            independentGroup.addTo(map);
 
             // Add filter control (checkboxes)
             L.control
@@ -230,6 +236,7 @@
                 "Primary Schools": primaryGroup,
                 "Secondary Schools": secondaryGroup,
                 "Special Schools": specialGroup,
+                "Independent Schools": independentGroup,
               })
               .addTo(map);
           })

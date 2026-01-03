@@ -2988,5 +2988,16 @@
     "PupilRoll": 9,
     "Latitude": 57.4631178,
     "Longitude": -2.6038287
+  },
+  {
+    "SeedCode": 00000000,
+    "SchoolType": "Independent",
+    "SchoolName": "Albyn School",
+    "PostCode": "AB15 4PB",
+    "LAName": "Aberdeen City",
+    "Email": "information@albynschool.org",
+    "Website": "",
+    "Latitude": 57.141609,
+    "Longitude": -2.132048
   }
 ]
