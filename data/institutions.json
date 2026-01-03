@@ -1,16 +1,18 @@
 [
   {
-    "SeedCode": 8212627,
-    "SchoolType": "Primary",
-    "SchoolName": "Abbey Primary School",
-    "PostCode": "KA13 7HG",
-    "LAName": "North Ayrshire",
-    "Email": "abbey@ea.n-ayrshire.sch.uk",
-    "Website": "https://blogs.glowscotland.org.uk/na/abbeyprimaryschool/",
-    "FTETeacher": 15.4,
-    "PupilRoll": 232,
+    "seedCode": 8212627,
+    "schoolType": "Primary",
+    "name": "Abbey Primary School",
+    "postCode": "KA13 7HG",
+    "la-name": "North Ayrshire",
+    "email": "abbey@ea.n-ayrshire.sch.uk",
+    "url": "https://blogs.glowscotland.org.uk/na/abbeyprimaryschool/",
+    "fteteacher": 15.4,
+    "pupilRoll": 232,
     "lat": 55.6563736,
-    "lng": -4.706148
+    "lng": -4.706148,
+    "contacts": ["Brown"],
+    "courses": "BSc Computing Science, MSc Data Science."
   },
   {
     "name": "Example University",
