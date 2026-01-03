@@ -151,6 +151,11 @@
                 return;
               }
 
+              const contactsHtml =
+                Array.isArray(inst.contacts) && inst.contacts.length > 0
+                  ? inst.contacts.map((contact) => `💻 ${contact}`).join("<br>")
+                  : "💻 <i>no CS/ICT teacher</i>";
+
               const popupHtml = `
               ${
                 inst.Website
@@ -159,7 +164,7 @@
               }
                &nbsp;&nbsp;[${inst.SeedCode}]<br>
                 ${inst.PostCode + ", "}${inst.LAName}<br>
-                💻${inst.contacts || "<i>no CS/ICT teacher</i>"}<br>
+                ${contactsHtml}<br>
                 ${inst.courses || ""}
               `;
 
