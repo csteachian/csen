@@ -2998,6 +2998,8 @@
     "Email": "information@albynschool.org",
     "Website": "https://www.albynschool.org/",
     "Latitude": 57.141609,
-    "Longitude": -2.132048
+    "Longitude": -2.132048,
+    "contact": ["Mr Simpson", "Mr MacDonald"],
+    "courses": "N5/H/AH Computing Science"
   }
 ]
