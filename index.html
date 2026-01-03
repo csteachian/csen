@@ -126,7 +126,8 @@
         const mapEl = document.getElementById("map");
         if (!mapEl) return;
 
-        const map = L.map("map").setView([57.15, -2.09], 7); // NE Scotland-ish
+        //const map = L.map("map").setView([57.15, -2.09], 7); // NE Scotland-ish
+        const map = L.map("map").setView([57.23, -2.61], 10); // Aberdeenshire center, zoomed in
 
         L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
           maxZoom: 19,
