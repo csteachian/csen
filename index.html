@@ -19,7 +19,6 @@
     />
 
     <style>
-      /* Minimal map styling; you can move this into styles.css */
       #map {
         height: 400px;
         width: 100%;
@@ -50,32 +49,12 @@
                 data-tockify-component="mini"
                 data-tockify-calendar="aberdeentechdata"
               ></div>
-
-              <!-- Leaflet map goes here -->
-              <h3 style="margin-top: 1.5rem">Community Institutions Map</h3>
-              <div id="map"></div>
             </div>
 
+            <!-- RIGHT-HAND SIDE: map replaces newsletter section -->
             <div class="calendar-description">
-              <h3>
-                Latest Community Newsletters
-                <button
-                  style="float: right"
-                  class="tab-btn"
-                  data-tab="subscribe"
-                >
-                  Subscribe
-                </button>
-              </h3>
-              <h3>
-                <i
-                  >Due to changes to the Substack API, this is currently
-                  unavailable.</i
-                >
-              </h3>
-              <div id="substack-feed-embed"></div>
-
-              <!-- Substack embed code commented out -->
+              <h3>Community Institutions Map</h3>
+              <div id="map"></div>
             </div>
           </div>
         </div>
@@ -143,7 +122,6 @@
     ></script>
 
     <script>
-      // Initialise Leaflet map once DOM is ready
       document.addEventListener("DOMContentLoaded", function () {
         const mapEl = document.getElementById("map");
         if (!mapEl) return;
@@ -155,14 +133,43 @@
           attribution: "© OpenStreetMap contributors",
         }).addTo(map);
 
-        // Example marker; you can replace with your own data
-        L.marker([57.1497, -2.0943])
-          .addTo(map)
-          .bindPopup("<strong>Aberdeen</strong><br>Example institution.");
+        // Load markers from JSON (served by GitHub Pages)
+        fetch("data/institutions.json")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((institutions) => {
+            institutions.forEach((inst) => {
+              if (
+                typeof inst.lat !== "number" ||
+                typeof inst.lng !== "number"
+              ) {
+                return;
+              }
+
+              const popupHtml = `
+                <strong>${inst.name}</strong><br>
+                ${inst.city ? inst.city + ", " : ""}${inst.country || ""}<br>
+                ${
+                  inst.url
+                    ? `<a href="${inst.url}" target="_blank">Website</a><br>`
+                    : ""
+                }
+                ${inst.courses || ""}
+              `;
+
+              L.marker([inst.lat, inst.lng]).addTo(map).bindPopup(popupHtml);
+            });
+          })
+          .catch((err) => {
+            console.error("Error loading institutions.json", err);
+          });
       });
     </script>
 
-    <!-- Your existing script -->
     <script src="script.js"></script>
   </body>
 </html>

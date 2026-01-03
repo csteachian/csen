@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Example College",
+    "city": "Aberdeen",
+    "country": "Scotland",
+    "lat": 57.1497,
+    "lng": -2.0943,
+    "url": "https://example.ac.uk",
+    "courses": "HNC Computing, Cyber Security, Software Development."
+  },
+  {
+    "name": "Example University",
+    "city": "Dundee",
+    "country": "Scotland",
+    "lat": 56.462,
+    "lng": -2.9707,
+    "url": "https://exampleuni.ac.uk",
+    "courses": "BSc Computing Science, MSc Data Science."
+  }
+]
