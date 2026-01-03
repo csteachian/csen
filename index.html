@@ -223,7 +223,7 @@
               const thisSchoolType =
                 Array.isArray(inst.contacts) && inst.contacts.length
                   ? inst.SchoolType
-                  : inst.SchoolType.join("NC");
+                  : inst.SchoolType + "NC";
               const marker = L.marker([inst.Latitude, inst.Longitude], {
                 icon: getColorIcon(thisSchoolType),
               }).bindPopup(popupHtml);
