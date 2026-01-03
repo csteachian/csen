@@ -3,7 +3,7 @@ from openpyxl import load_workbook
 from pathlib import Path
 
 # Configuration
-XLSX_FILE = 'SG_SchoolRoll_2023.xlsx'  # Update this with your XLSX file path
+XLSX_FILE = 'SG_SchoolRoll_2023-AbC-AbS.xlsx'  # Update this with your XLSX file path
 OUTPUT_DIR = 'output'  # Directory where JSON files will be saved
 INDENT = 2  # JSON indentation for readability (set to None for compact JSON)
 
