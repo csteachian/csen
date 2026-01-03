@@ -9,6 +9,23 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
     />
+
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <style>
+      /* Minimal map styling; you can move this into styles.css */
+      #map {
+        height: 400px;
+        width: 100%;
+        margin-top: 1rem;
+      }
+    </style>
   </head>
   <body class="light-mode">
     <div class="container">
@@ -33,7 +50,12 @@
                 data-tockify-component="mini"
                 data-tockify-calendar="aberdeentechdata"
               ></div>
+
+              <!-- Leaflet map goes here -->
+              <h3 style="margin-top: 1.5rem">Community Institutions Map</h3>
+              <div id="map"></div>
             </div>
+
             <div class="calendar-description">
               <h3>
                 Latest Community Newsletters
@@ -53,24 +75,8 @@
               </h3>
               <div id="substack-feed-embed"></div>
 
-              <!--
-              <script>
-                window.SubstackFeedWidget = {
-                  substackUrl: "csenabz.substack.com",
-                  posts: 5,
-                  hidden: ["reactions", "author"],
-                  colors: {
-                    primary: "#333333",
-                    secondary: "#666666",
-                    background: "#E8E8E8",
-                  },
-                };
-              </script>
-              <script
-                src="https://substackapi.com/embeds/feed.js"
-                async
-              ></script>
-            --></div>
+              <!-- Substack embed code commented out -->
+            </div>
           </div>
         </div>
 
@@ -128,6 +134,35 @@
       data-tockify-script="embed"
       src="https://public.tockify.com/browser/embed.js"
     ></script>
+
+    <!-- Leaflet JS -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+
+    <script>
+      // Initialise Leaflet map once DOM is ready
+      document.addEventListener("DOMContentLoaded", function () {
+        const mapEl = document.getElementById("map");
+        if (!mapEl) return;
+
+        const map = L.map("map").setView([57.15, -2.09], 7); // NE Scotland-ish
+
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "© OpenStreetMap contributors",
+        }).addTo(map);
+
+        // Example marker; you can replace with your own data
+        L.marker([57.1497, -2.0943])
+          .addTo(map)
+          .bindPopup("<strong>Aberdeen</strong><br>Example institution.");
+      });
+    </script>
+
+    <!-- Your existing script -->
     <script src="script.js"></script>
   </body>
 </html>
