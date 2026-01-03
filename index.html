@@ -104,7 +104,7 @@
       </main>
 
       <footer>
-        <p>© 2025 csteach.uk</p>
+        <p>© 2026 csteach.uk</p>
       </footer>
     </div>
 
@@ -151,13 +151,14 @@
               }
 
               const popupHtml = `
-                <strong>${inst.name}</strong><br>
-                ${inst.city ? inst.city + ", " : ""}${inst.country || ""}<br>
-                ${
+              ${
                   inst.url
-                    ? `<a href="${inst.url}" target="_blank">Website</a><br>`
-                    : ""
+                    ? `<a href="${inst.url}" target="_blank"><strong>${inst.SchoolName}</strong></a>`
+                    : "<strong>${inst.SchoolName}</strong>"
                 }
+               &nbsp;&nbsp;[${inst.SeedCode}]<br>
+                ${inst.PostCode + ", " inst.LAName}<br>
+                💻${inst.contacts || "<i>no CS/ICT teacher</i>"}<br>
                 ${inst.courses || ""}
               `;
 
