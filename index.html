@@ -152,12 +152,12 @@
 
               const popupHtml = `
               ${
-                  inst.url
-                    ? `<a href="${inst.url}" target="_blank"><strong>${inst.SchoolName}</strong></a>`
-                    : "<strong>${inst.SchoolName}</strong>"
-                }
+                inst.url
+                  ? `<a href="${inst.url}" target="_blank"><strong>${inst.SchoolName}</strong></a>`
+                  : "<strong>${inst.SchoolName}</strong>"
+              }
                &nbsp;&nbsp;[${inst.SeedCode}]<br>
-                ${inst.PostCode + ", " inst.LAName}<br>
+                ${inst.PostCode + ", "}${inst.LAName}<br>
                 💻${inst.contacts || "<i>no CS/ICT teacher</i>"}<br>
                 ${inst.courses || ""}
               `;
