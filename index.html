@@ -154,25 +154,26 @@
           .then((response) => response.json())
           .then((institutions) => {
             const typeToRgb = {
-              Primary: "#4A90E2", // Custom blue
-              Secondary: "#E94B3C", // Custom red
-              Special: "#F7CA18", // Custom yellow/gold
+              Primary: "#4A90E2", // Blue
+              Secondary: "#E94B3C", // Red
+              Special: "#F7CA18", // Gold
             };
 
             const getColorIcon = (type) => {
-              const color = typeToRgb[type] || "#808080"; // Gray fallback
-              return L.divIcon({
-                className: "custom-pin", // Avoid Leaflet defaults
-                html: `<div style="
-      width: 24px; height: 36px; 
-      background-color: ${color}; 
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; 
-      transform: rotate(45deg); 
-      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
-    "></div>`,
-                iconSize: [24, 36],
-                iconAnchor: [12, 36], // Pin tip
-                popupAnchor: [0, -36],
+              const color = typeToRgb[type] || "#808080";
+              // Classic pin SVG path (from Leaflet defaults, optimized)
+              const svgPin = `<svg xmlns='http://www.w3.org/2000/svg' width='25' height='41' viewBox='0 0 25 41'>
+    <path fill='${color}' stroke='rgba(255,255,255,0.9)' stroke-width='1.5' stroke-linejoin='round' d='M12.5 0C5.71 0 0 5.71 0 12.5c0 8.1 12.5 30.5 12.5 30.5S25 20.6 25 12.5C25 5.71 19.29 0 12.5 0z' opacity='0.95'/>
+    <circle fill='white' cx='12.5' cy='12.5' r='6' opacity='0.9'/>
+  </svg>`;
+
+              return L.icon({
+                iconUrl: `data:image/svg+xml;base64,${btoa(svgPin)}`, // Encode SVG as data URI
+                shadowUrl:
+                  "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png",
+                iconSize: [25, 41],
+                iconAnchor: [12, 41],
+                popupAnchor: [1, -34],
               });
             };
 
