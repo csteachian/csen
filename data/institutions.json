@@ -1,20 +1,15 @@
 [
   {
-    "name": "Example College",
-    "city": "Aberdeen",
-    "country": "Scotland",
-    "lat": 57.1497,
-    "lng": -2.0943,
-    "url": "https://example.ac.uk",
-    "courses": "HNC Computing, Cyber Security, Software Development."
-  },
-  {
-    "name": "Example University",
-    "city": "Dundee",
-    "country": "Scotland",
-    "lat": 56.462,
-    "lng": -2.9707,
-    "url": "https://exampleuni.ac.uk",
-    "courses": "BSc Computing Science, MSc Data Science."
+    "SeedCode": 8212627,
+    "SchoolType": "Primary",
+    "SchoolName": "Abbey Primary School",
+    "PostCode": "KA13 7HG",
+    "LAName": "North Ayrshire",
+    "Email": "abbey@ea.n-ayrshire.sch.uk",
+    "Website": "https://blogs.glowscotland.org.uk/na/abbeyprimaryschool/",
+    "FTETeacher": 15.4,
+    "PupilRoll": 232,
+    "Latitude": 55.6563736,
+    "Longitude": -4.706148
   }
 ]
