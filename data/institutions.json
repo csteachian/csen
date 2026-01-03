@@ -3001,5 +3001,82 @@
     "Longitude": -2.132048,
     "contacts": ["Mr Simpson", "Mr MacDonald"],
     "courses": "N5/H/AH Computing Science"
+  },
+  {
+    "SeedCode": 0,
+    "SchoolType": "Independent",
+    "SchoolName": "Camphill Rudolf Steiner School",
+    "PostCode": "AB15 9EP",
+    "LAName": "Aberdeen City",
+    "Email": "office@crss.org.uk",
+    "Website": "https://www.camphillschools.org.uk/",
+    "Latitude": 57.103699,
+    "Longitude": -2.211477
+  },
+  {
+    "SeedCode": 0,
+    "SchoolType": "Independent",
+    "SchoolName": "Dóxa Theó Christian School",
+    "PostCode": "AB24 2SF",
+    "LAName": "Aberdeen City",
+    "Email": "enquiries@doxatheochristianschool.org",
+    "Website": "https://www.doxatheochristianschool.org/",
+    "Latitude": 57.17101,
+    "Longitude": -2.122975
+  },
+  {
+    "SeedCode": 0,
+    "SchoolType": "Independent",
+    "SchoolName": "The International School Aberdeen",
+    "PostCode": "AB15 9PN",
+    "LAName": "Aberdeen City",
+    "Email": "nlittle@isa.aberdeen.sch.uk",
+    "Website": "https://isa.aberdeen.sch.uk/",
+    "Latitude": 57.124875,
+    "Longitude": -2.153774
+  },
+  {
+    "SeedCode": 0,
+    "SchoolType": "Independent",
+    "SchoolName": "Linn Moor Residential School",
+    "PostCode": "AB14 0PJ",
+    "LAName": "Aberdeen City",
+    "Email": "linn.moor.school@vsa.org.uk",
+    "Website": "https://www.vsa.org.uk/our-services/linn-moor-school",
+    "Latitude": 57.105954,
+    "Longitude": -2.292065
+  },
+  {
+    "SeedCode": 0,
+    "SchoolType": "Independent",
+    "SchoolName": "Melville-Knox Christian School",
+    "PostCode": "AB16 5QQ",
+    "LAName": "Aberdeen City",
+    "Email": "enquiries@melvilleknoxaberdeen.org",
+    "Website": "https://www.melvilleknoxaberdeen.org/",
+    "Latitude": 57.161196,
+    "Longitude": -2.151824
+  },
+  {
+    "SeedCode": 0,
+    "SchoolType": "Independent",
+    "SchoolName": "Robert Gordon's College",
+    "PostCode": "AB10 1FE",
+    "LAName": "Aberdeen City",
+    "Email": "r.macpherson@rgc.aberdeen.sch.uk",
+    "Website": "https://rgc.aberdeen.sch.uk/",
+    "Latitude": 57.149289,
+    "Longitude": -2.102773
+  },
+  {
+    "SeedCode": 0,
+    "SchoolType": "Independent",
+    "SchoolName": "St Margaret's School for Girls",
+    "PostCode": "AB10 1RU",
+    "LAName": "Aberdeen City",
+    "Email": "info@st-margaret.aberdeen.sch.uk",
+    "Website": "https://st-margaret.aberdeen.sch.uk/",
+    "Latitude": 57.14255,
+    "Longitude": -2.11528
   }
 ]
